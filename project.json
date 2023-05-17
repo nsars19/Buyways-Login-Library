@@ -3,8 +3,6 @@
   "description": "A library to log in to the BuyWays platform. Requires",
   "main": "NewActivity.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "2.11.4",
-    "UiPath.Mail.Activities": "1.12.3",
     "UiPath.System.Activities": "21.10.3",
     "UiPath.UIAutomation.Activities": "21.10.4"
   },
@@ -12,7 +10,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.2",
+  "projectVersion": "1.0.3",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -27,7 +25,8 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": true
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
   },
   "designOptions": {
     "projectProfile": "Developement",
