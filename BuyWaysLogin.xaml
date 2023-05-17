@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1563,3085</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1351,3083</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -80,13 +80,11 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Buyways Login Sequence" sap:VirtualizedContainerService.HintSize="702,3020" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Buyways Login Sequence" sap:VirtualizedContainerService.HintSize="702,3018" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="ss:SecureString" Name="buywaysPass" />
-      <Variable x:TypeArguments="x:String" Name="buywaysUser" />
       <Variable x:TypeArguments="x:String" Name="buywaysURL" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -184,29 +182,33 @@
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
     <ui:LogMessage DisplayName="Log Message - fetching URL" sap:VirtualizedContainerService.HintSize="640,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Got Buyways URL: &quot;+ buywaysURL]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_BuyWaysCredentialsAssetName]" DisplayName="Get Buyways Login Credentials" FolderPath="[in_OrchestratorFolder]" sap:VirtualizedContainerService.HintSize="640,89" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[buywaysPass]" Username="[buywaysUser]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="640,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Got Buyways Assets&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Use Buyways" sap:VirtualizedContainerService.HintSize="640,1997" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="999a7344-bc95-4b7c-b69e-8b7f623ce75b" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Use Buyways" sap:VirtualizedContainerService.HintSize="640,2265" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="999a7344-bc95-4b7c-b69e-8b7f623ce75b" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Buyways login steps" sap:VirtualizedContainerService.HintSize="606,1771" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Buyways login steps" sap:VirtualizedContainerService.HintSize="606,2039" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch - login steps" sap:VirtualizedContainerService.HintSize="544,1647" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch - login steps" sap:VirtualizedContainerService.HintSize="544,1916" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence DisplayName="Try login steps" sap:VirtualizedContainerService.HintSize="506,1410" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Try login steps" sap:VirtualizedContainerService.HintSize="506,1679" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="ss:SecureString" Name="BuywaysPassword" />
+                    <Variable x:TypeArguments="x:String" Name="BuywaysUsername" />
+                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'User Name *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="444,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="999a7344-bc95-4b7c-b69e-8b7f623ce75b" Text="[buywaysUser]" Version="V1">
+                  <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_BuyWaysCredentialsAssetName]" DisplayName="Get Buyways Login Credentials" FolderPath="[in_OrchestratorFolder]" sap:VirtualizedContainerService.HintSize="444,89" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[BuywaysPassword]" Username="[BuywaysUsername]" />
+                  <ui:LogMessage DisplayName="Log Message - get credentials" sap:VirtualizedContainerService.HintSize="444,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Got Buyways Assets&quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'User Name *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="444,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="999a7344-bc95-4b7c-b69e-8b7f623ce75b" Text="[BuywaysUsername]" Version="V1">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://solutions.sciquest.com/apps/Router/Login?OrgName=UMass&amp;URL=" DesignTimeRectangle="1070, 455, 183, 21" ElementType="InputBox" FriendlyName="'INPUT Username'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='' /&gt;" Guid="03ddf1c8-1a4c-4ae7-800f-033931050847" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALsAAAAZCAYAAABpRF+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD1SURBVHhe7dvLCYNAFIVhsQL34qMZtQu7FB+NWM4Nx0xEwSTrmft/cDYad3/AxZgZ4ASxw41b7NM0Wd/3Vte1FUXBWJRTv+p4WZZQ9tsZ+zzPjw8yFvPWdQ2FX2LXP0E3x3G0PM/DVSA++74fHatndf1xxl6W5XFTP8wyXuURN3Wsntu2DVcuseuGJsSOFFybFmJHsogdbhA73CB2uEHscIPY4Qaxww1ihxvEDjeIHW4QO9wgdrjxNXadDtMNTj0iBT9PPXKeHan4e56dL5VYitu2LRR+iV0UfNd1VlXV44OMxbCmaWwYhtsnecLLOdwgdjhh9gLcXepAoMHNvgAAAABJRU5ErkJggg==" InformativeScreenshot="bdbfa771829d633f069e0844b6fd5df7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SIGN IN' /&gt;" SearchSteps="FuzzySelector">
                         <uix:TargetAnchorable.Anchors>
@@ -217,7 +219,7 @@
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
                   </uix:NTypeInto>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="444,251" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="999a7344-bc95-4b7c-b69e-8b7f623ce75b" SecureText="[buywaysPass]" Version="V1">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="444,251" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="999a7344-bc95-4b7c-b69e-8b7f623ce75b" SecureText="[BuywaysPassword]" Version="V1">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://solutions.sciquest.com/apps/Router/Login?OrgName=UMass&amp;URL=" DesignTimeRectangle="1070, 488, 183, 21" ElementType="InputBoxPassword" FriendlyName="'INPUT Password'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='' /&gt;" Guid="537dd39f-9c28-44e9-8944-0478c1145442" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALsAAAAZCAYAAABpRF+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACMSURBVHhe7dLLCQJBFEVBMx2j0Vgml8lHd60iDn4wgT5VcGkevT2HARFiJ2OPfV1Xsyn38hE7zEbsZIidDLGTIXYyxE6G2MkQOxliJ0PsZIidDLGTIXYyxE6G2MkQOxliJ0PsZIidjL+xm824lz32d9u2JUbLT+yPCJbTZRzP17Hc93y/7kn+BV8yxg0k18sLo6k/mQAAAABJRU5ErkJggg==" InformativeScreenshot="516a120a039f9f93c39149eec7196866.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SIGN IN' /&gt;" SearchSteps="FuzzySelector">
                         <uix:TargetAnchorable.Anchors>
@@ -248,7 +250,7 @@
                     <uix:NCheckState.Target>
                       <uix:TargetAnchorable BrowserURL="https://solutions.sciquest.com/apps/Router/Login?OrgName=UMass&amp;URL=" DesignTimeRectangle="1390, 455, 183, 21" ElementType="InputBox" FriendlyName="'INPUT Username'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='' /&gt;" Guid="4d657085-4edf-4bfa-bb93-79712a24ccfd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALsAAAAZCAYAAABpRF+PAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD1SURBVHhe7dvLCYNAFIVhsQL34qMZtQu7FB+NWM4Nx0xEwSTrmft/cDYad3/AxZgZ4ASxw41b7NM0Wd/3Vte1FUXBWJRTv+p4WZZQ9tsZ+zzPjw8yFvPWdQ2FX2LXP0E3x3G0PM/DVSA++74fHatndf1xxl6W5XFTP8wyXuURN3Wsntu2DVcuseuGJsSOFFybFmJHsogdbhA73CB2uEHscIPY4Qaxww1ihxvEDjeIHW4QO9wgdrjxNXadDtMNTj0iBT9PPXKeHan4e56dL5VYitu2LRR+iV0UfNd1VlXV44OMxbCmaWwYhtsnecLLOdwgdjhh9gLcXepAoMHNvgAAAABJRU5ErkJggg==" InformativeScreenshot="c4bb20f91d0ed06108177b979d9e93b7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SIGN IN' /&gt;" SearchSteps="FuzzySelector">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target DesignTimeRectangle="1297, 459, 73, 17" ElementType="Text" FriendlyName="'User Name *'" FullSelectorArgument="&lt;webctrl id='UsernameLabel' innertext='User Name *' aaname='User Name *' /&gt;" FuzzySelectorArgument="&lt;webctrl id='UsernameLabel' innertext='User Name *' aaname='User Name *' tag='SPAN' type='' check:text='User Name *' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAAVCAYAAAAD1GMqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGTSURBVFhH7ZXtkQMhCEC3Q8uyFEuxlC3DgN+AayJ3c5cfvBlnogaFt2RzJeMYk6bApCkwaQpMmgKTpsCkKSDSor+SC3edNe4UnEti+deIyV9Xunys8wHms1j+O+6Q3CKBL5HmknNS0P9Jw5rx7phCgMFyO5eG9rEz8vBQcuVh/Q4Ouijki8n3OygN1nM83afSakfWMfIs0kPwfS/HRDafwHPbnqx3ED0+TNkwh9JqguIeto4JuwCRVdoyplGlwacieFRIpMGZ/XMWPOcEAtpmk0Xm/CH2meiiDsQVF3B+raVxKG19CS82X/QgQjK+y8+nnTaze5C7Od8r+e26bYXinYYX07bPYuraGCXmTBow/UyptCKUny9F7OYjdzK2+UmItHWBrKjOSGb3tI6lAS1mSOMd/pNOW9VyBpFWnvJ8IVwDia+LngpZxDU00trZ2AUllIkQ77T57v38uZ7PodKQ9iJtg7wEMYGxR7qLx9XEdNKALGbqrvl8B38Kqk5Dnn7mnyOlGW8xaQpMmgKTpsCkHZPSC67OgVDkuGr8AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
